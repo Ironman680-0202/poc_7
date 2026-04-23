@@ -7,11 +7,11 @@ pipeline {
  
     stages {
  
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/Ironman680-0202/poc_7.git'
-            }
-        }
+        // stage('Clone Repo') {
+        //     steps {
+        //         git 'https://github.com/Ironman680-0202/poc_7.git'
+        //     }
+        // }
  
         stage('Build Docker Image') {
             steps {

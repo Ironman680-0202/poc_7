@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+    - name: Stop existing container
+      shell: docker stop myapp || true
+ 
+    - name: Remove container
+      shell: docker rm myapp || true
+ 
+    - name: Run new container
+      shell: docker run -d -p 80:5000 --name myapp myapp:latest
+ 

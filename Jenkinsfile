@@ -9,7 +9,7 @@ pipeline {
  
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/POC_1.git'
+                git 'https://github.com/Ironman680-0202/poc_7.git'
             }
         }
  

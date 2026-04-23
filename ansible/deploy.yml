@@ -7,5 +7,5 @@
       shell: docker rm myapp || true
  
     - name: Run new container
-      shell: docker run -d -p 80:5000 --name myapp myapp:latest
+      shell: docker run -d -p 5000:5000 --name myapp myapp:latest
  

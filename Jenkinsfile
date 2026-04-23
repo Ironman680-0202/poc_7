@@ -1,45 +1,33 @@
 pipeline {
     agent any
- 
-    environment {
-        IMAGE_NAME = "myapp"
-    }
- 
+
     stages {
- 
-        stage('Checkout Code') {
+
+        stage('Prepare Application') {
             steps {
-                git 'https://github.com/Ironman680-0202/poc_7.git'
+                sh '''
+                echo "Preparing application"
+                ls -l
+                test -f Dockerfile
+                '''
             }
         }
- 
-        stage('Prepare App') {
-            steps {
-                sh 'echo Preparing application...'
-            }
-        }
- 
+
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh 'docker build -t myapp:latest .'
             }
         }
- 
-        stage('Tag Image') {
-            steps {
-                sh 'docker tag $IMAGE_NAME $IMAGE_NAME:latest'
-            }
-        }
- 
+
         stage('Deploy via Ansible') {
             steps {
                 sh 'ansible-playbook ansible/deploy.yml -i ansible/inventory'
             }
         }
- 
+
         stage('Verify Deployment') {
             steps {
-                sh 'curl -I http://localhost || true'
+                sh 'curl -f http://localhost:5000'
             }
         }
     }

@@ -4,7 +4,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return """
-    Hello from CI/CD 🚀
+    Hello from CI/CD
+     I love devops 🚀
     """
  
 if __name__ == "__main__":

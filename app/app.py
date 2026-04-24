@@ -5,7 +5,7 @@ app = Flask(__name__)
 def hello():
     return """
     Hello from CI/CD
-     I love devops 🚀
+     I love devops  yo yo🚀
     """
  
 if __name__ == "__main__":

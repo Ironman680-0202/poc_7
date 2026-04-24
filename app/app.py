@@ -5,6 +5,7 @@ app = Flask(__name__)
 def hello():
     return """
     Hello from CI/CD 🚀
+    Check 2
     """
  
 if __name__ == "__main__":
